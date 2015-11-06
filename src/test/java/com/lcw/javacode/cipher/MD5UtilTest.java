@@ -3,7 +3,6 @@ package com.lcw.javacode.cipher;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 public class MD5UtilTest {
 
     @Test
