@@ -1,4 +1,4 @@
-package com.lcw.javacode.base;
+package com.lcw.javacode.image;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
