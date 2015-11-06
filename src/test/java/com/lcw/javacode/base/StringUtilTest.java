@@ -24,4 +24,47 @@ public class StringUtilTest {
     public void randomString() {
         StringUtil.randomString(12);
     }
+
+    @Test
+    public void testIsInteger() {
+        Assert.assertTrue(StringUtil.isInteger("-1"));
+        Assert.assertTrue(StringUtil.isInteger("0"));
+        Assert.assertTrue(StringUtil.isInteger("01"));
+        Assert.assertTrue(StringUtil.isInteger("10000000"));
+
+        Assert.assertFalse(StringUtil.isInteger("0.1"));
+        Assert.assertFalse(StringUtil.isInteger("a"));
+    }
+
+    @Test
+    public void testIsDouble() {
+        Assert.assertTrue(StringUtil.isDouble("0.1"));
+        Assert.assertTrue(StringUtil.isDouble("-0.1"));
+
+        Assert.assertFalse(StringUtil.isDouble("0"));
+        Assert.assertFalse(StringUtil.isDouble("01"));
+        Assert.assertFalse(StringUtil.isDouble("10000000"));
+        Assert.assertFalse(StringUtil.isDouble("a"));
+
+        Assert.assertFalse(StringUtil.isInteger("-1"));
+    }
+
+    @Test
+    public void testIsLetter() {
+//        StringUtil.isLetter()
+    }
+
+    @Test
+    public void testIsEmail() {
+        Assert.assertTrue(StringUtil.isEmail("test@163.com"));
+        Assert.assertTrue(StringUtil.isEmail("test@163.com.123"));
+        Assert.assertFalse(StringUtil.isEmail("test@@163.com.123"));
+        Assert.assertFalse(StringUtil.isEmail("test163.com.123"));
+    }
+
+    @Test
+    public void testHangeToBig() {
+        System.out.println(StringUtil.hangeToBig("123456789"));
+    }
+
 }
