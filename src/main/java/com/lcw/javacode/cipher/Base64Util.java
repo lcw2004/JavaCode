@@ -50,16 +50,7 @@ public class Base64Util {
      * @return 编码后的字符串
      */
     public static String decodeString(String value) {
-        String decodeValue = null;
-        if (value != null) {
-            try {
-                BASE64Decoder decoder = new BASE64Decoder();
-                decodeValue = new String(decoder.decodeBuffer(value));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return decodeValue;
+        return decodeString(value, null);
     }
 
     /**
@@ -74,7 +65,13 @@ public class Base64Util {
         if (value != null) {
             try {
                 BASE64Decoder decoder = new BASE64Decoder();
-                decodeValue = new String(decoder.decodeBuffer(value), charSet);
+
+                byte[] decodeBytes = decoder.decodeBuffer(value);
+                if(charSet != null) {
+                    decodeValue = new String(decodeBytes, charSet);
+                } else {
+                    decodeValue = new String(decodeBytes);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
