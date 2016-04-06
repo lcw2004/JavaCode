@@ -43,7 +43,7 @@ public final class JdbcUtil {
 	}
 
 	/**
-	 * »ñÈ¡Êı¾İ¿âÁ¬½Ó
+	 * è·å–æ•°æ®åº“è¿æ¥
 	 * @return
 	 */
 	public static Connection getConnection() {
@@ -57,7 +57,7 @@ public final class JdbcUtil {
 	}
 
 	/**
-	 * ÊÍ·Å×ÊÔ´ÎÄ¼ş
+	 * é‡Šæ”¾èµ„æºæ–‡ä»¶
 	 * @return
 	 */
 	public static void free(ResultSet rs, Statement st, Connection conn) {
@@ -67,7 +67,7 @@ public final class JdbcUtil {
 	}
 
 	/**
-	 * ÊÍ·ÅConnection
+	 * é‡Šæ”¾Connection
 	 * @param conn
 	 */
 	private static void free(Connection conn) {
@@ -80,7 +80,7 @@ public final class JdbcUtil {
 	}
 
 	/**
-	 * ÊÍ·ÅStatement
+	 * é‡Šæ”¾Statement
 	 * @param st
 	 */
 	private static void free(Statement st) {
@@ -93,7 +93,7 @@ public final class JdbcUtil {
 	}
 
 	/**
-	 * ÊÍ·ÅResultSet
+	 * é‡Šæ”¾ResultSet
 	 * @param rs
 	 */
 	private static void free(ResultSet rs) {

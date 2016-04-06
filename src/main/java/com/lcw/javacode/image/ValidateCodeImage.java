@@ -5,23 +5,23 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 /**
- * ¹¦ÄÜÃèÊö£º ÓÃÀ´Éú³ÉÑéÖ¤ÂëÍ¼Æ¬£¬²âÊÔĞèÒª£¬³£Á¿£¬·½·¨¶¼ÉèÖÃ³ÉÁËstatic<br/>
+ * åŠŸèƒ½æè¿°ï¼š ç”¨æ¥ç”ŸæˆéªŒè¯ç å›¾ç‰‡ï¼Œæµ‹è¯•éœ€è¦ï¼Œå¸¸é‡ï¼Œæ–¹æ³•éƒ½è®¾ç½®æˆäº†static<br/>
  */
 public class ValidateCodeImage {
 
-	// Í¼Æ¬µÄ¿í¶È
+	// å›¾ç‰‡çš„å®½åº¦
 	private final static int IMAGEWIDTH = 20;
 
-	// Í¼Æ¬µÄ¸ß¶È
+	// å›¾ç‰‡çš„é«˜åº¦
 	private final static int IMAGEHEIGHT = 30;
 
-	// ×ÖÌå´óĞ¡
+	// å­—ä½“å¤§å°
 	private final static int FONTSIZE = 18;
 
-	// ×Ö·û´®³¤¶È
+	// å­—ç¬¦ä¸²é•¿åº¦
 	private final static int CODE_LENGTH = 4;
 
-	// Ëæ»ú×Ö·û·¶Î§
+	// éšæœºå­—ç¬¦èŒƒå›´
 	private final static char[] CHAR_RANGE = { 'A', 'B', 'C', 'D', 'E', 'F',
 			'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
 			'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
@@ -32,8 +32,8 @@ public class ValidateCodeImage {
 	private static Random random = new Random();
 
 	/**
-	 * Éú³ÉËæ»ú×Ö·û´®
-	 * @return Ëæ»ú×Ö·û´®
+	 * ç”Ÿæˆéšæœºå­—ç¬¦ä¸²
+	 * @return éšæœºå­—ç¬¦ä¸²
 	 */
 	private static String getRandString() {
 		StringBuilder sb = new StringBuilder();
@@ -43,10 +43,10 @@ public class ValidateCodeImage {
 	}
 
 	/**
-	 * Éú³ÉËæ»úÑÕÉ«
-	 * @param ll  ²úÉúÑÕÉ«ÖµÏÂÏŞ(lower limit)
-	 * @param ul  ²úÉúÑÕÉ«ÖµÉÏÏŞ(upper limit)
-	 * @return Éú³ÉµÄËæ»úÑÕÉ«¶ÔÏó
+	 * ç”Ÿæˆéšæœºé¢œè‰²
+	 * @param ll  äº§ç”Ÿé¢œè‰²å€¼ä¸‹é™(lower limit)
+	 * @param ul  äº§ç”Ÿé¢œè‰²å€¼ä¸Šé™(upper limit)
+	 * @return ç”Ÿæˆçš„éšæœºé¢œè‰²å¯¹è±¡
 	 */
 	private static Color getRandColor(int ll, int ul) {
 		if (ll > 255) ll = 255;
@@ -62,37 +62,37 @@ public class ValidateCodeImage {
 	}
 
 	/**
-	 * Éú³ÉÖ¸¶¨×Ö·û´®µÄÍ¼ÏñÊı¾İ
-	 * @param verifyCode  ¼´½«±»´òÓ¡µÄËæ»ú×Ö·û´®
-	 * @return Éú³ÉµÄÍ¼ÏñÊı¾İ
+	 * ç”ŸæˆæŒ‡å®šå­—ç¬¦ä¸²çš„å›¾åƒæ•°æ®
+	 * @param verifyCode  å³å°†è¢«æ‰“å°çš„éšæœºå­—ç¬¦ä¸²
+	 * @return ç”Ÿæˆçš„å›¾åƒæ•°æ®
 	 */
 	private static BufferedImage getImage(String verifyCode) {
 
-		// Éú³É»­²¼
+		// ç”Ÿæˆç”»å¸ƒ
 		BufferedImage bufferedImage = new BufferedImage(IMAGEWIDTH * CODE_LENGTH,
 				IMAGEHEIGHT, BufferedImage.TYPE_INT_RGB);
 
-		// »ñÈ¡Í¼ĞÎÉÏÏÂÎÄ £¨Éú³É»­±Ê£©
+		// è·å–å›¾å½¢ä¸Šä¸‹æ–‡ ï¼ˆç”Ÿæˆç”»ç¬”ï¼‰
 		Graphics graphics = bufferedImage.getGraphics();
 
-		// ÉèÖÃ±³¾°É«£¨£©
+		// è®¾ç½®èƒŒæ™¯è‰²ï¼ˆï¼‰
 		graphics.setColor(getRandColor(1, 50));
 
-		// Ìî³ä¾ØĞÎÇøÓò £¬×÷Îª±³¾°
+		// å¡«å……çŸ©å½¢åŒºåŸŸ ï¼Œä½œä¸ºèƒŒæ™¯
 		graphics.fillRect(0, 0, IMAGEWIDTH * 4, IMAGEHEIGHT);
 
-		// ÉèÖÃ±ß¿òÑÕÉ«
+		// è®¾ç½®è¾¹æ¡†é¢œè‰²
 		graphics.setColor(new Color(0, 255, 0));
 
-		// »­³ö±ß¿ò
+		// ç”»å‡ºè¾¹æ¡†
 		for (int i = 0; i < 2; i++) {
 			graphics.drawRect(i, i, IMAGEWIDTH * CODE_LENGTH - i * 2 - 1, IMAGEHEIGHT - i * 2 - 1);
 		}
 
-		// ÉèÖÃËæ»ú¸ÉÈÅÏßÌõÑÕÉ«
+		// è®¾ç½®éšæœºå¹²æ‰°çº¿æ¡é¢œè‰²
 		graphics.setColor(getRandColor(50, 100));
 
-		// ²úÉú50Ìõ¸ÉÈÅÏßÌõ
+		// äº§ç”Ÿ50æ¡å¹²æ‰°çº¿æ¡
 		for (int i = 0; i < 50; i++) {
 			int x1 = random.nextInt(IMAGEWIDTH * CODE_LENGTH - 4) + 2;
 			int y1 = random.nextInt(IMAGEHEIGHT - 4) + 2;
@@ -101,24 +101,24 @@ public class ValidateCodeImage {
 			graphics.drawLine(x1, y1, x2, y2);
 		}
 
-		// ÉèÖÃ×ÖÌå
+		// è®¾ç½®å­—ä½“
 		graphics.setFont(new Font("Times New Roman", Font.PLAIN, FONTSIZE));
 
-		// »­×Ö·û´®
+		// ç”»å­—ç¬¦ä¸²
 		for (int i = 0; i < CODE_LENGTH; i++) {
 			String temp = verifyCode.substring(i, i + 1);
 			graphics.setColor(getRandColor(100, 255));
 			graphics.drawString(temp, 13 * i + 6, 16);
 		}
 
-		// Í¼ÏñÉúĞ§
+		// å›¾åƒç”Ÿæ•ˆ
 		graphics.dispose();
 
 		return bufferedImage;
 	}
 
 	/**
-	 * °Ñ×Ö·û´®´«µ½ÍâÃæµÄÀà
+	 * æŠŠå­—ç¬¦ä¸²ä¼ åˆ°å¤–é¢çš„ç±»
 	 * @return
 	 */
 	public static BufferedImage getSecurityImage() {

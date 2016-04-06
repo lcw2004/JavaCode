@@ -4,33 +4,33 @@ import java.io.File;
 
 public class JarPathUtil {
 	/**
-	 * Í¨¹ıclass»ñÈ¡classËùÔÚjar°üµÄÂ·¾¶
-	 * ×¢£ºÖ»ÄÜ»ñÈ¡jar°üÖĞµÄÀàµÄÂ·¾¶£¬JDKÖĞµÄÀàÎŞ·¨È¡µ½Â·¾¶
-	 * @param clazz ¶ÔÏóµÄclass
-	 * @return jar°üÎÄ¼ş¾ø¶ÔÂ·¾¶
+	 * é€šè¿‡classè·å–classæ‰€åœ¨jaråŒ…çš„è·¯å¾„
+	 * æ³¨ï¼šåªèƒ½è·å–jaråŒ…ä¸­çš„ç±»çš„è·¯å¾„ï¼ŒJDKä¸­çš„ç±»æ— æ³•å–åˆ°è·¯å¾„
+	 * @param clazz å¯¹è±¡çš„class
+	 * @return jaråŒ…æ–‡ä»¶ç»å¯¹è·¯å¾„
 	 */
 	public static String getJarFilePathByClass(Class<?> clazz) {
 		String jarFilePath = "";
 		if(clazz.getResource("") != null) {
 			jarFilePath =  clazz.getProtectionDomain().getCodeSource().getLocation().getFile();
 		} else {
-			System.out.println("JDKÖĞµÄÀàµÄÂ·¾¶ÎŞ·¨»ñÈ¡");
+			System.out.println("JDKä¸­çš„ç±»çš„è·¯å¾„æ— æ³•è·å–");
 		}
 		return new File(jarFilePath).getAbsolutePath();
 	}
 
 	/**
-	 * Í¨¹ıclass»ñÈ¡classËùÔÚjar°üµÄÃû³Æ¡£
-	 * ×¢£ºÖ»ÄÜ»ñÈ¡jar°üÖĞµÄÀàµÄÂ·¾¶£¬JDKÖĞµÄÀÛÎŞ·¨È¡µ½Â·¾¶
-	 * @param clazz ¶ÔÏóµÄclass
-	 * @return jar°üÎÄ¼şÃû
+	 * é€šè¿‡classè·å–classæ‰€åœ¨jaråŒ…çš„åç§°ã€‚
+	 * æ³¨ï¼šåªèƒ½è·å–jaråŒ…ä¸­çš„ç±»çš„è·¯å¾„ï¼ŒJDKä¸­çš„ç´¯æ— æ³•å–åˆ°è·¯å¾„
+	 * @param clazz å¯¹è±¡çš„class
+	 * @return jaråŒ…æ–‡ä»¶å
 	 */
 	public static String getJarFileNameByClass(Class<?> clazz) {
 		String jarFilePath = "";
 		if(clazz.getResource("") != null) {
 			jarFilePath =  clazz.getProtectionDomain().getCodeSource().getLocation().getFile();
 		} else {
-			System.out.println("JDKÖĞµÄÀàµÄÂ·¾¶ÎŞ·¨»ñÈ¡");
+			System.out.println("JDKä¸­çš„ç±»çš„è·¯å¾„æ— æ³•è·å–");
 		}
  		return new File(jarFilePath).getName();
 	}
