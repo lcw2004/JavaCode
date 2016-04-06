@@ -11,7 +11,9 @@ public class ShellUtil {
      * @param cmd
      * @return
      */
-    public static String execShellInLinux(String cmd) {
+    public static String execInLinux(String cmd) {
+        String result = null;
+
         Process process = null;
         try {
             String[] cmdA = { "/bin/sh", "-c", cmd };
@@ -22,8 +24,8 @@ public class ShellUtil {
             while ((line = br.readLine()) != null) {
                 sb.append(line).append("\n");
             }
-            process.destroy();
-            return sb.toString();
+
+            result = sb.toString();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -31,7 +33,7 @@ public class ShellUtil {
                 process.destroy();
             }
         }
-        return null;
+        return result;
     }
 
     /**
@@ -40,10 +42,15 @@ public class ShellUtil {
      * @return
      */
     public static void execInWindows(String cmd) {
+        Process process = null;
         try {
-            Runtime.getRuntime().exec(cmd);
+            process = Runtime.getRuntime().exec(cmd);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if(process != null) {
+                process.destroy();
+            }
         }
     }
 }
