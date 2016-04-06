@@ -38,6 +38,11 @@ public class Config {
 		return props.getProperty(key, defaultValue);
 	}
 
+	/**
+	 * 获取String值
+	 * @param key 键
+	 * @return
+	 */
 	public static String getStringValue(String key) {
 		return getValue(key, "");
 	}

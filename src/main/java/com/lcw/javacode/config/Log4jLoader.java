@@ -10,7 +10,7 @@ import sun.rmi.runtime.Log;
 public class Log4jLoader {
 
 	private static Logger logger = Logger.getLogger(Log4jLoader.class);
-	
+
 	public static void loadLog4j() {
 		InputStream is = null;
 		try {
@@ -18,14 +18,14 @@ public class Log4jLoader {
 			PropertyConfigurator.configure(is);
 			is.close();
 			logger.info("成功加载日志配置文件");
-			
+
 		} catch (IOException e) {
 			System.out.println("加载日志配置文件失败");
 			e.printStackTrace();
 		} finally {
 			try {
-				if(is != null) {
-				is.close();
+				if (is != null) {
+					is.close();
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
