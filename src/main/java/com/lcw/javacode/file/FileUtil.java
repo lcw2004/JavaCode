@@ -279,10 +279,8 @@ public class FileUtil {
 		File file = new File(fileName);
 		if (file.exists() && file.isFile()) {
 			if (file.delete()) {
-				log.info("删除单个文件 " + fileName + " 成功!");
 				return true;
 			} else {
-				log.info("删除单个文件 " + fileName + " 失败!");
 				return false;
 			}
 		} else {

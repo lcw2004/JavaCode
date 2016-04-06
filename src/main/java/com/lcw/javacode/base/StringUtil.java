@@ -9,7 +9,6 @@ public class StringUtil {
     /**
      * 将十进制数据转换为十六进制数据
      * @param input 待转换字符
-     * @return
      */
     public static String number10To16(String input) {
         BigInteger bigInteger = new BigInteger(input, 10);
@@ -19,7 +18,6 @@ public class StringUtil {
     /**
      * 将十六进制数据转换为十进制数据
      * @param input 待转换字符
-     * @return
      */
     public static String number16To10(String input) {
         BigInteger bigInteger = new BigInteger(input, 16);
@@ -29,9 +27,8 @@ public class StringUtil {
     /**
      * 生成一个随机的字符串
      * @param length 字符串长度
-     * @return
      */
-    public static final String randomString(int length) {
+    public static String randomString(int length) {
         if (length < 1) {
             return null;
         }

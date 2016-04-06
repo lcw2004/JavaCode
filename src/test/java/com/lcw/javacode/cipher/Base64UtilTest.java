@@ -23,7 +23,7 @@ public class Base64UtilTest {
     public void testBase64Bytes() {
         byte[] input = "你好，世界！".getBytes();
 
-        byte[] output_defualt = Base64Util.encodeBytes(input);
-        Assert.assertArrayEquals(input, Base64Util.decodeBytes(output_defualt));
+        byte[] output = Base64Util.encodeBytes(input);
+        Assert.assertArrayEquals(input, Base64Util.decodeBytes(output));
     }
 }
