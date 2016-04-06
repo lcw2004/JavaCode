@@ -9,5 +9,6 @@ public class JarPathUtilTest {
     public void testGetJarFilePathByClass() {
         System.out.println(JarPathUtil.getJarFileNameByClass(Logger.class));
         System.out.println(JarPathUtil.getJarFilePathByClass(Logger.class));
+        JarPathUtil.checkDuplicate(Logger.class);
     }
 }
